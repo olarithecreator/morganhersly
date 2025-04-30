@@ -68,10 +68,10 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center">
             <div className="flex space-x-10 mr-10">
-              {['Our Process', 'Services', 'Case Studies', 'Contact'].map((item, index) => (
+              {['Our Process', 'Services', 'Case Studies', 'Stories/Insights', 'Contact'].map((item, index) => (
                 <a 
                   key={item} 
-                  href={`#${item.toLowerCase().replace(' ', '')}`} 
+                  href={item === 'Stories/Insights' ? '/stories-insights' : `#${item.toLowerCase().replace(' ', '')}`} 
                   className="text-sm font-medium transition-all duration-300 relative overflow-hidden group text-foreground"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
@@ -108,10 +108,10 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
         {mobileMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-background shadow-lg md:hidden animate-fade-in">
             <nav className="flex flex-col py-4">
-              {['Our Process', 'Services', 'Case Studies', 'Contact'].map((item, index) => (
+              {['Our Process', 'Services', 'Case Studies', 'Stories/Insights', 'Contact'].map((item, index) => (
                 <a 
                   key={item}
-                  href={`#${item.toLowerCase().replace(' ', '')}`} 
+                  href={item === 'Stories/Insights' ? '/stories-insights' : `#${item.toLowerCase().replace(' ', '')}`} 
                   className={cn(
                     "px-6 py-3 text-sm font-medium hover:bg-accent border-l-2 border-transparent hover:border-primary transition-all duration-300",
                     "text-foreground"
