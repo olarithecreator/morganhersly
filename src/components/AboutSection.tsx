@@ -31,11 +31,18 @@ const ProcessStep = ({
     <Card className={cn(
       "border border-border/30 bg-background/70 backdrop-blur-sm w-full h-full",
       "transition-all duration-500 group animate-on-scroll opacity-0",
+      "overflow-hidden"
     )}>
       <CardContent className="p-0 flex flex-col h-full relative overflow-hidden">
-        {/* Background color circle */}
+        {/* Background color gradient */}
         <div className={cn(
-          "absolute -right-[30%] -top-[30%] w-[80%] h-[80%] rounded-full opacity-5 transition-all duration-300 group-hover:scale-110",
+          "absolute inset-0 w-full h-full opacity-10 transition-all duration-300 group-hover:opacity-15",
+          bgColor
+        )}></div>
+        
+        {/* Accent circle */}
+        <div className={cn(
+          "absolute -right-[20%] -top-[20%] w-[60%] h-[60%] rounded-full opacity-20 transition-all duration-300 group-hover:scale-110",
           bgColor
         )}></div>
         
@@ -45,8 +52,9 @@ const ProcessStep = ({
               <span className="text-5xl md:text-7xl font-bold text-primary/80 opacity-30">{number}</span>
               <div className={cn(
                 "p-5 rounded-full flex items-center justify-center",
-                "bg-background/80 border border-border shadow-lg",
+                "bg-background/90 border border-border shadow-lg",
                 "group-hover:border-primary/40 transition-all duration-300",
+                bgColor.replace('bg-', 'group-hover:bg-').replace(']', '/10]')
               )}>
                 <Icon size={36} className="transition-transform duration-300" />
               </div>
@@ -58,7 +66,10 @@ const ProcessStep = ({
           
           <div className="relative z-10">
             <div className="w-full h-1 bg-muted overflow-hidden">
-              <div className="h-full w-0 bg-primary group-hover:w-full transition-all duration-700"></div>
+              <div className={cn(
+                "h-full w-0 group-hover:w-full transition-all duration-700",
+                bgColor.replace('bg-[', 'bg-[')
+              )}></div>
             </div>
           </div>
         </div>
