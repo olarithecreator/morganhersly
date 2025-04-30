@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -11,7 +10,12 @@ import ScrollToTop from '@/components/ScrollToTop';
 import TechnologyPartnersSection from '@/components/TechnologyPartnersSection';
 
 const Index: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(true); // Default to dark mode
+  // Initialize theme from localStorage or default to light mode
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    const savedTheme = localStorage.getItem('theme');
+    // Only use saved theme if it exists, otherwise default to light mode
+    return savedTheme ? savedTheme === 'dark' : false;
+  });
   
   useEffect(() => {
     // Set page title
@@ -23,6 +27,9 @@ const Index: React.FC = () => {
     } else {
       document.documentElement.classList.remove('dark');
     }
+
+    // Save theme preference to localStorage
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     
     // Add intersection observer for fade-in effects
     const observer = new IntersectionObserver(
