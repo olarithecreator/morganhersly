@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -69,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center">
             <div className="flex space-x-10 mr-10">
-              {['About', 'Services', 'Case Studies', 'Contact'].map((item, index) => (
+              {['Our Process', 'Services', 'Case Studies', 'Contact'].map((item, index) => (
                 <a 
                   key={item} 
                   href={`#${item.toLowerCase().replace(' ', '')}`} 
@@ -109,7 +108,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
         {mobileMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-background shadow-lg md:hidden animate-fade-in">
             <nav className="flex flex-col py-4">
-              {['About', 'Services', 'Case Studies', 'Contact'].map((item, index) => (
+              {['Our Process', 'Services', 'Case Studies', 'Contact'].map((item, index) => (
                 <a 
                   key={item}
                   href={`#${item.toLowerCase().replace(' ', '')}`} 
