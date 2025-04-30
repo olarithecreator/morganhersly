@@ -1,8 +1,8 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
+import { TypeWriter } from '@/components/ui/typewriter';
 
 const HeroSection: React.FC = () => {
   const textRef = useRef<HTMLDivElement>(null);
@@ -17,6 +17,14 @@ const HeroSection: React.FC = () => {
       });
     }
   }, []);
+
+  const growthWords = [
+    'Scaling Growth.',
+    'Driving Success.',
+    'Maximizing ROI.',
+    'Building Value.',
+    'Leading Innovation.'
+  ];
   
   return (
     <section className="min-h-screen flex items-center bg-background pt-20 overflow-hidden">
@@ -50,7 +58,12 @@ const HeroSection: React.FC = () => {
             </div>
             <div className="overflow-hidden relative">
               <span className="animated-line block transform translate-y-full animate-slide-up bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50">
-                Scaling Growth.
+                <TypeWriter 
+                  words={growthWords}
+                  typingSpeed={100}
+                  deletingSpeed={50}
+                  delayBetweenWords={2000}
+                />
               </span>
               <span className="absolute -inset-1 bg-gradient-to-r from-primary/5 to-primary/5 blur-xl opacity-50 animate-pulse"></span>
             </div>

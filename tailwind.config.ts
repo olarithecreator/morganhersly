@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -90,32 +89,30 @@ export default {
 						height: '0'
 					}
 				},
-				'fade-in': {
-					'0%': { 
-						opacity: '0',
-						transform: 'translateY(20px)'
-					},
-					'100%': { 
-						opacity: '1',
-						transform: 'translateY(0)'
-					}
+				'slide-up': {
+					'0%': { transform: 'translateY(100%)' },
+					'100%': { transform: 'translateY(0)' }
 				},
-				'fade-out': {
-					'0%': { 
-						opacity: '1',
-						transform: 'translateY(0)'
-					},
-					'100%': { 
-						opacity: '0',
-						transform: 'translateY(-20px)'
-					}
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'bounce-gentle': {
+					'0%, 100%': { transform: 'translateX(0)' },
+					'50%': { transform: 'translateX(3px)' }
+				},
+				'blink': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'fade-out': 'fade-out 0.5s ease-out forwards'
+				'slide-up': 'slide-up 0.8s ease-out forwards',
+				'fade-in': 'fade-in 0.8s ease-out forwards',
+				'bounce-gentle': 'bounce-gentle 1s ease-in-out infinite',
+				'blink': 'blink 1s step-end infinite'
 			}
 		}
 	},
