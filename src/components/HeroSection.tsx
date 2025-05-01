@@ -79,8 +79,9 @@ const HeroSection: React.FC = () => {
               className={cn(
                 "bg-primary text-primary-foreground rounded-none text-lg px-8 py-6 h-auto group transition-all duration-300 hover:shadow-lg relative overflow-hidden"
               )}
+              onClick={() => window.open('https://calendly.com/morganhersly-xsq7/30min', '_blank')}
             >
-              <span className="relative z-10">Book Discovery Call</span>
+              <span className="relative z-10">Get Free Strategy Call</span>
               <ArrowRight className="ml-2 transition-all duration-300 group-hover:translate-x-2 relative z-10" />
               <span className="absolute inset-0 w-0 bg-gradient-to-r from-primary/80 to-primary transition-all duration-500 group-hover:w-full"></span>
             </Button>

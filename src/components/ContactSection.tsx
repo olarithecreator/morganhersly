@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -75,7 +74,7 @@ const ContactSection: React.FC = () => {
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold mb-6">Work With Us</h2>
             <p className="text-xl text-gray-300">
-              Ready to transform your business? Schedule your discovery call today and let's discuss 
+              Ready to transform your business? Get your free strategy call today and let's discuss 
               how Morgan Hersly can help you achieve your goals.
             </p>
           </div>
@@ -127,16 +126,17 @@ const ContactSection: React.FC = () => {
             </div>
             
             <div className="border-l border-gray-800 pl-12 h-full">
-              <h3 className="text-xl font-medium mb-8">Book a Discovery Call</h3>
+              <h3 className="text-xl font-medium mb-8">Get Your Free Strategy Call</h3>
               <p className="text-gray-300 mb-8">
-                Schedule a no-obligation 30-minute discovery call to discuss your business challenges 
+                Schedule a no-obligation 30-minute strategy call to discuss your business challenges 
                 and how we might be able to help.
               </p>
               <Button 
                 className="bg-white text-black hover:bg-gray-200 rounded-none group px-8"
                 size="lg"
+                onClick={() => window.open('https://calendly.com/morganhersly-xsq7/30min', '_blank')}
               >
-                Book Your Discovery Call
+                Get Free Strategy Call
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
