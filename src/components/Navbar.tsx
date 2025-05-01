@@ -85,8 +85,9 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
               className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-none group px-6 hover:shadow-md transition-all duration-300 animate-fade-in"
               style={{ animationDelay: '400ms' }}
               size="sm"
+              onClick={() => window.open('https://calendly.com/morganhersly-xsq7/30min', '_blank')}
             >
-              <span className="relative z-10">Book Call</span>
+              <span className="relative z-10">Get Free Strategy Call</span>
               <ArrowRight className="ml-2 h-4 w-4 transition-all duration-300 group-hover:translate-x-1" />
               <span className={cn(
                 "absolute inset-0 w-full h-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300",
@@ -137,8 +138,9 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
                 <Button 
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/80 rounded-none flex items-center justify-center group overflow-hidden"
                   size="sm"
+                  onClick={() => window.open('https://calendly.com/morganhersly-xsq7/30min', '_blank')}
                 >
-                  <span className="relative z-10">Book Call</span>
+                  <span className="relative z-10">Get Free Strategy Call</span>
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   <span className="absolute inset-0 w-full h-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </Button>
