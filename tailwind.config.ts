@@ -100,7 +100,7 @@ export default {
 				'bounce-gentle': {
 					'0%, 100%': { transform: 'translateX(0)' },
 					'50%': { transform: 'translateX(3px)' }
-				},
+					},
 				'blink': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0' }
