@@ -71,7 +71,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
               {['Our Process', 'Services', 'Case Studies', 'Stories/Insights', 'Contact'].map((item, index) => (
                 <a 
                   key={item} 
-                  href={item === 'Stories/Insights' ? '/stories-insights' : `#${item.toLowerCase().replace(' ', '')}`} 
+                  href={item === 'Stories/Insights' ? '/stories-insights.html' : `#${item.toLowerCase().replace(' ', '')}`} 
                   className="text-sm font-medium transition-all duration-300 relative overflow-hidden group text-foreground"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
@@ -111,7 +111,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
               {['Our Process', 'Services', 'Case Studies', 'Stories/Insights', 'Contact'].map((item, index) => (
                 <a 
                   key={item}
-                  href={item === 'Stories/Insights' ? '/stories-insights' : `#${item.toLowerCase().replace(' ', '')}`} 
+                  href={item === 'Stories/Insights' ? '/stories-insights.html' : `#${item.toLowerCase().replace(' ', '')}`} 
                   className={cn(
                     "px-6 py-3 text-sm font-medium hover:bg-accent border-l-2 border-transparent hover:border-primary transition-all duration-300",
                     "text-foreground"
