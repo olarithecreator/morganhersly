@@ -27,21 +27,49 @@ const StoriesInsights = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      try {
-        const response = await axios.get<RSSResponse>(
-          'https://api.rss2json.com/v1/api.json?rss_url=https://morganhersly.substack.com/feed'
-        );
-        
-        if (response.data.status === 'ok') {
-          setPosts(response.data.items);
-        } else {
-          throw new Error('Failed to fetch blog posts');
+      // Array of possible Substack feed URLs to try
+      const feedUrls = [
+        'https://morganstephens.substack.com/feed',
+        'https://substack.com/@morganstephens/rss',
+        'https://substack.com/@morganstephens/feed'
+      ];
+
+      let lastError = null;
+
+      for (const feedUrl of feedUrls) {
+        try {
+          console.log(`Attempting to fetch from: ${feedUrl}`);
+          
+          // Use RSS2JSON API with proper URL encoding
+          const rss2jsonUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+          
+          console.log('RSS2JSON URL:', rss2jsonUrl);
+          
+          const response = await axios.get<RSSResponse>(rss2jsonUrl);
+          console.log('Response status:', response.data.status);
+          console.log('Items found:', response.data.items?.length || 0);
+          
+          if (response.data.status === 'ok' && response.data.items && response.data.items.length > 0) {
+            console.log('Successfully fetched posts');
+            setPosts(response.data.items);
+            setError(null);
+            setLoading(false);
+            return; // Exit on successful fetch
+          } else {
+            console.log('Feed returned no items');
+            lastError = new Error('No posts found in the feed');
+          }
+        } catch (err) {
+          console.error(`Error fetching from ${feedUrl}:`, err);
+          lastError = err;
+          // Continue to next URL
         }
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to fetch blog posts. Please try again later.');
-        setLoading(false);
       }
+
+      // If we get here, all URLs failed
+      console.error('All feed URLs failed');
+      setError('Unable to fetch blog posts. Please check if the Substack URL is correct or try again later.');
+      setLoading(false);
     };
 
     fetchPosts();
@@ -71,7 +99,12 @@ const StoriesInsights = () => {
     return (
       <div className="min-h-screen pt-24 pb-12 px-4 bg-white">
         <div className="max-w-[800px] mx-auto">
-          <p className="text-red-500">{error}</p>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <p className="text-red-600">{error}</p>
+            <p className="text-sm text-red-500 mt-2">
+              If this issue persists, please verify the Substack URL or contact support.
+            </p>
+          </div>
         </div>
       </div>
     );
