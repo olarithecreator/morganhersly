@@ -29,9 +29,9 @@ const StoriesInsights = () => {
     const fetchPosts = async () => {
       // Array of possible Substack feed URLs to try
       const feedUrls = [
-        'https://morganstephens.substack.com/feed',
-        'https://substack.com/@morganstephens/rss',
-        'https://substack.com/@morganstephens/feed'
+        'https://morganhersly.substack.com/feed',
+        'https://substack.com/@morganhersly/rss',
+        'https://morganhersly.substack.com/rss'
       ];
 
       let lastError = null;
